@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "author": "Uri Shaked",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": -76.25, "left": -8.37, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -58.87,
+      "left": 121.49,
+      "attrs": { "temperature": "7.4", "humidity": "58" }
+    },
+    { "type": "board-ssd1306", "id": "oled1", "top": -14.53, "left": -135.83, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "dht1:SDA", "esp:D15", "green", [ "v0" ] ],
+    [ "dht1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "oled1:GND", "esp:GND.2", "black", [ "v-13.55", "h-62.67", "v95.32", "h156.96" ] ],
+    [ "oled1:SCL", "esp:D22", "green", [ "v-88.89", "h187.76", "v54.71" ] ],
+    [ "oled1:SDA", "esp:D21", "green", [ "v-77.56", "h170.6", "v72.28" ] ],
+    [ "oled1:VCC", "esp:VIN", "red", [ "v-21.55", "h-81.45", "v120", "h166.96" ] ]
+  ]
+}
